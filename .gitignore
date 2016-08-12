@@ -15,3 +15,7 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore database.yml. Use config/skel/database.{my,pg}.yml.
+/config/database.yml
+
