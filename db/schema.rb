@@ -13,10 +13,10 @@
 ActiveRecord::Schema.define(version: 20160813144526) do
 
   create_table "plan_items", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.integer  "points"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",        null: false
+    t.text     "description", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end
