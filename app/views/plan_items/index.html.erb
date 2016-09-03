@@ -1,8 +1,10 @@
 <h1>予定リスト</h1>
 
+<div class='container'>
 <% @plan_items.each do |item| %>
-<div>
-  <div><%= item.name %></div>
-  <div><%= item.description %></div>
-</div>
+  <div class='row'>
+    <div class='col-xs-12 col-md-4'><%= item.name %></div>
+    <div class='col-xs-12 col-md-8'><%= item.description %></div>
+  </div>
 <% end %>
+</div>
