@@ -8,4 +8,9 @@ item.name = '買い物'
 item.description = '洗剤を買う'
 item.save!
 
+item = PlanItem.new
+item.name = '病院'
+item.description = '花粉症治療'
+item.save!
+
 puts PlanItem.count
