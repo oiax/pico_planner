@@ -1,2 +1,8 @@
-<h1>PlanItems#index</h1>
-<p>Find me in app/views/plan_items/index.html.erb</p>
+<h1>予定リスト</h1>
+
+<% @plan_items.each do |item| %>
+<div>
+  <div><%= item.name %></div>
+  <div><%= item.description %></div>
+</div>
+<% end %>
