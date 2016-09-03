@@ -1,0 +1,12 @@
+div.plan-items {
+  div.row {
+    margin-top: 0.5rem;
+    background-color: #ddd;
+    span.plan-item-name {
+      font-weight: bold;
+    }
+    span.plan-item-description {
+      font-size: 0.75rem;
+    }
+  }
+}
