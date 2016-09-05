@@ -8,11 +8,7 @@
       <span class='plan-item-description'><%= item.description %></span>
     </div>
     <div class='col-xs-12'>
-      <span class='plan-item-duration'>
-        <%= item.starts_at %>
-        &#x301c;
-        <%= item.ends_at %>
-      </span>
+      <span class='plan-item-duration'><%= format_duration(item) %></span>
     </div>
   </div>
 <% end %>
