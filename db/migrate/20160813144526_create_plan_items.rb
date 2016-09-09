@@ -5,6 +5,7 @@ class CreatePlanItems < ActiveRecord::Migration[5.0]
       t.text :description, null: false
       t.datetime :starts_at, null: false
       t.datetime :ends_at, null: false
+      t.boolean :all_day, null: false, default: false
 
       t.timestamps
     end
