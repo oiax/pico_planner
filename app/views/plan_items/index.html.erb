@@ -5,7 +5,11 @@
       <span class='plan-item-name'><%= item.name %></span>
     </div>
     <div class='col-xs-12 col-md-8'>
-      <span class='plan-item-description'><%= item.description %></span>
+      <span class='plan-item-description'>
+        <% item.description.split("\n").each do |line| %>
+          <%= line %><br>
+        <% end %>
+      </span>
     </div>
     <div class='col-xs-12'>
       <span class='plan-item-duration'><%= format_duration(item) %></span>

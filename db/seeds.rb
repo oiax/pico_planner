@@ -15,10 +15,10 @@ item.ends_at = time0.advance(days: 1, hours: 16, minutes: 30)
 item.save!
 
 item = PlanItem.new
-item.name = '病院'
-item.description = '花粉症治療'
-item.starts_at = time0.advance(days: 2, hours: 13)
-item.ends_at = time0.advance(days: 2, hours: 14)
+item.name = '帰省'
+item.description = "新幹線の指定席を取る。\nお土産を買う。"
+item.starts_at = time0.beginning_of_year.advance(years: 1, days: -2)
+item.ends_at = time0.beginning_of_year.advance(years: 1, days: 3)
 item.save!
 
 puts PlanItem.count
