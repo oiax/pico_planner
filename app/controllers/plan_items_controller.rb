@@ -1,6 +1,6 @@
 class PlanItemsController < ApplicationController
   def index
-    @plan_items = PlanItem.all
+    @plan_items = PlanItem.order(:starts_at)
   end
 
   def new
