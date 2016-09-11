@@ -5,10 +5,12 @@ class PlanItemsController < ApplicationController
 
   def new
     @plan_item = PlanItem.new
-    @plan_item.starts_at = Time.current.beginning_of_hour.advance(hours: 1)
-    @plan_item.ends_at = Time.current.beginning_of_hour.advance(hours: 2)
+    time0 = Time.current.beginning_of_hour
+    @plan_item.starts_at = time0.advance(hours: 1)
+    @plan_item.ends_at = time0.advance(hours: 2)
   end
 
   def create
+    redirect_to :root
   end
 end
