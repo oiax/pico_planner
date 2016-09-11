@@ -11,13 +11,12 @@ class PlanItemsController < ApplicationController
   end
 
   def create
-    @plan_item = PlanItem.new
-    @plan_item.name = params[:plan_item][:name]
-    @plan_item.description = params[:plan_item][:description]
-    @plan_item.starts_at = params[:plan_item][:starts_at]
-    @plan_item.ends_at = params[:plan_item][:ends_at]
-    @plan_item.save
+    PlanItem.create(plan_item_params)
 
     redirect_to :root
+  end
+
+  private def plan_item_params
+    params[:plan_item].permit(:name, :description, :starts_at, :ends_at)
   end
 end
