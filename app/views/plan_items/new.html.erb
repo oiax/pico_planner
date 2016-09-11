@@ -1,7 +1,7 @@
 <%= form_for @plan_item do |f| %>
   <div class='form-group'>
     <%= f.label :name, '件名' %>
-    <%= f.text_field :name, class: 'form-control' %>
+    <%= f.text_field :name, class: 'form-control', required: true %>
   </div>
   <div class='form-group'>
     <%= f.label :description, '説明' %>
@@ -9,11 +9,13 @@
   </div>
   <div class='form-group'>
     <%= f.label :starts_at, '開始日時' %>
-    <%= f.datetime_local_field :starts_at, class: 'form-control' %>
+    <%= f.datetime_local_field :starts_at, class: 'form-control',
+      required: true %>
   </div>
   <div class='form-group'>
     <%= f.label :ends_at, '終了日時' %>
-    <%= f.datetime_local_field :ends_at, class: 'form-control' %>
+    <%= f.datetime_local_field :ends_at, class: 'form-control',
+      required: true %>
   </div>
   <div class='form-group'>
     <%= f.submit '追加', class: 'btn btn-success' %>
