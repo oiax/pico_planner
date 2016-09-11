@@ -1,3 +1,11 @@
+<%
+  datetime_select_options = {
+    use_month_numbers: true,
+    start_year: 2010,
+    end_year: Date.today.year + 10,
+    default: Date.tomorrow.midnight.advance(hours: 12)
+  }
+%>
 <%= form_for @plan_item do |f| %>
   <div class='form-group'>
     <%= f.label :name, '件名' %>
@@ -6,6 +14,18 @@
   <div class='form-group'>
     <%= f.label :description, '説明' %>
     <%= f.text_area :description, class: 'form-control' %>
+  </div>
+  <div class='form-group'>
+    <%= f.label :starts_at, '開始日時' %>
+    <div>
+      <%= f.datetime_select :starts_at, datetime_select_options %>
+    </div>
+  </div>
+  <div class='form-group'>
+    <%= f.label :ends_at, '終了日時' %>
+    <div>
+      <%= f.datetime_select :ends_at, datetime_select_options %>
+    </div>
   </div>
   <div class='form-group'>
     <%= f.submit '追加', class: 'btn btn-success' %>
