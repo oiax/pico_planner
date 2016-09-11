@@ -1,2 +1,3 @@
-<h1>PlanItems#new</h1>
-<p>Find me in app/views/plan_items/new.html.erb</p>
+<%= form_for @plan_item do |f| %>
+  <%= f.submit '追加', class: 'btn btn-success' %>
+<% end %>
