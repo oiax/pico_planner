@@ -15,6 +15,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap', '>= 4.0.0.alpha4', '< 4.1'
 gem 'tether-rails'
 gem 'font-awesome-sass'
+gem 'momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17'
 
 group :development, :test do
   gem 'byebug', platform: :mri
