@@ -4,13 +4,9 @@
     <div class='col-xs-8 col-md-4'>
       <span class='plan-item-name'><%= item.name %></span>
     </div>
-    <div class='col-xs-4 hidden-sm-up text-xs-right'
-      style='word-spacing: 0.5rem'>
+    <div class='col-xs-4 hidden-sm-up text-xs-right'>
       <%= link_to [ :edit, item ] do %>
         <i class='fa fa-pencil fa-lg'></i>
-      <% end %>
-      <%= link_to item, method: :delete do %>
-        <i class='fa fa-trash fa-lg'></i>
       <% end %>
     </div>
     <div class='col-xs-12 col-md-5'>
@@ -23,10 +19,6 @@
     <div class='col-md-3 hidden-xs-down text-xs-right p-t-1'>
       <%= link_to [ :edit, item ], class: 'btn btn-secondary btn-sm' do %>
         <i class='fa fa-pencil-square'></i> 変更
-      <% end %>
-      <%= link_to item, method: :delete,
-        class: 'btn btn-secondary btn-sm' do %>
-        <i class='fa fa-trash'></i> 削除
       <% end %>
     </div>
     <div class='col-xs-12'>
