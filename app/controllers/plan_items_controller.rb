@@ -13,7 +13,7 @@ class PlanItemsController < ApplicationController
   def create
     PlanItem.create(plan_item_params)
 
-    redirect_to :root
+    redirect_to :root, notice: '予定を追加しました。'
   end
 
   private def plan_item_params
