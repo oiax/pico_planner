@@ -10,10 +10,21 @@ class PlanItemsController < ApplicationController
     @plan_item.ends_at = time0.advance(hours: 2)
   end
 
+  def edit
+    @plan_item = PlanItem.find(params[:id])
+  end
+
   def create
     PlanItem.create(plan_item_params)
 
-    redirect_to :root, notice: '予定を追加しました。'
+    redirect_to :plan_items, notice: '予定を追加しました。'
+  end
+
+  def update
+    @plan_item = PlanItem.find(params[:id])
+    @plan_item.update_attributes(plan_item_params)
+
+    redirect_to :plan_items, notice: '予定を更新しました。'
   end
 
   private def plan_item_params
