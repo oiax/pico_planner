@@ -1,3 +1,6 @@
 <%= link_to [ :edit, item ] do %>
   <i class='fa fa-pencil-square fa-lg'></i>
 <% end %>
+<%= link_to item, method: :delete do %>
+  <i class='fa fa-trash fa-lg'></i>
+<% end %>

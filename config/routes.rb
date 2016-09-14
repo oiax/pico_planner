@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get 'plan_items/:id/edit' => 'plan_items#edit', as: :edit_plan_item
   post 'plan_items' => 'plan_items#create'
   patch 'plan_items/:id' => 'plan_items#update', as: :plan_item
+  delete 'plan_items/:id' => 'plan_items#destroy'
 end
