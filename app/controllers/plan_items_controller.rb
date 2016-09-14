@@ -27,6 +27,13 @@ class PlanItemsController < ApplicationController
     redirect_to :plan_items, notice: '予定を更新しました。'
   end
 
+  def destroy
+    @plan_item = PlanItem.find(params[:id])
+    @plan_item.destroy
+
+    redirect_to :plan_items, notice: '予定を削除しました。'
+  end
+
   private def plan_item_params
     params[:plan_item].permit(:name, :description, :starts_at, :ends_at)
   end
