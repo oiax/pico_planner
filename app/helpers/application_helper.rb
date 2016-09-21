@@ -23,6 +23,11 @@ module ApplicationHelper
     s.html_safe
   end
 
+  def format_datetime(t)
+    w = format_wday(t)
+    t.strftime("%Y年%-m月%-d日 (#{w}) %H:%M")
+  end
+
   private def format_wday(item)
     %w(日 月 火 水 木 金 土)[item.wday]
   end

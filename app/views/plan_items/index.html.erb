@@ -2,7 +2,7 @@
 <% @plan_items.each do |item| %>
   <div class='row'>
     <div class='col-xs-8 col-md-4'>
-      <span class='plan-item-name'><%= item.name %></span>
+      <span class='plan-item-name'><%= link_to item.name, item %></span>
     </div>
     <div class='col-xs-4 hidden-sm-up text-xs-right toolbar'>
       <%= render 'xs_toolbar', item: item %>
