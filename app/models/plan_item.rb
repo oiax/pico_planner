@@ -1,0 +1,2 @@
+class PlanItem < ApplicationRecord
+end
