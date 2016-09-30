@@ -20,5 +20,3 @@ PlanItem.create(
   starts_at: time0.beginning_of_year.advance(years: 1, days: -2),
   ends_at: time0.beginning_of_year.advance(years: 1, days: 3)
 )
-
-puts PlanItem.count
