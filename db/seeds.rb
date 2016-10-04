@@ -1,4 +1,4 @@
-time0 = Time.current.midnight
+time0 = Time.current.beginning_of_day
 
 PlanItem.create(
   name: '読書',
