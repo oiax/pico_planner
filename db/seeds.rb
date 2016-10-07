@@ -10,8 +10,8 @@ PlanItem.create(
 PlanItem.create(
   name: '買い物',
   description: '洗剤を買う',
-  starts_at: time0.advance(days: 1, hours: 16),
-  ends_at: time0.advance(days: 1, hours: 16, minutes: 30)
+  starts_at: time0.advance(hours: 16),
+  ends_at: time0.advance(hours: 16, minutes: 30)
 )
 
 PlanItem.create(
