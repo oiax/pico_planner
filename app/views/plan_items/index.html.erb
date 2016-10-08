@@ -1,11 +1,15 @@
-<div>
+<div class='container-fluid plan-items'>
   <% @plan_items.each do |item| %>
-  <div>
-    <div>
-      <%= item.name %>
+  <div class='row'>
+    <div class='col-xs-12 col-md-4'>
+      <span class='plan-item-name'><%= item.name %></span>
     </div>
-    <div>
-      <%= item.description %>
+    <div class='col-xs-12 col-md-8'>
+      <span class='plan-item-description'>
+        <% item.description.split("\n").each do |line| %>
+          <%= line %><br>
+        <% end %>
+      </span>
     </div>
   </div>
   <% end %>

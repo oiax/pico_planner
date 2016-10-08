@@ -10,5 +10,5 @@ PlanItem.create(
 
 PlanItem.create(
   name: '帰省',
-  description: '新幹線の指定席を取る。お土産を買う。'
+  description: "新幹線の指定席を取る。\nお土産を買う。"
 )
