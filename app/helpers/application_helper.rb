@@ -1,9 +1,11 @@
+# -*- frozen_string_literal: true -*-
+
 module ApplicationHelper
   def format_duration(item)
     w1 = format_wday(item.starts_at)
     w2 = format_wday(item.ends_at)
 
-    s = ''
+    s = String.new('')
     if item.starts_at.year == Time.current.year
       s << item.starts_at.strftime("%-m月%-d日 (#{w1}) %H:%M")
     else
@@ -19,8 +21,6 @@ module ApplicationHelper
     else
       s << item.ends_at.strftime("%Y年%-m月%-d日 (#{w2}) %H:%M")
     end
-
-    s.html_safe
   end
 
   def format_datetime(t)
