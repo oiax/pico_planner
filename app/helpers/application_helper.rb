@@ -10,7 +10,7 @@ module ApplicationHelper
       s << item.starts_at.strftime("%Y年%-m月%-d日 (#{w1}) %H:%M")
     end
 
-    s << ' &#x301c; '
+    s << ' &#x301C; '
 
     if item.ends_at.to_date == item.starts_at.to_date
       s << item.ends_at.strftime('%H:%M')
