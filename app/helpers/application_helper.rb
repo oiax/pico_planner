@@ -23,12 +23,12 @@ module ApplicationHelper
     end
   end
 
-  def format_datetime(t)
-    w = format_wday(t)
-    t.strftime("%Y年%-m月%-d日 (#{w}) %H:%M")
+  def format_datetime(datetime)
+    w = format_wday(datetime)
+    datetime.strftime("%Y年%-m月%-d日 (#{w}) %H:%M")
   end
 
-  private def format_wday(item)
-    %w(日 月 火 水 木 金 土)[item.wday]
+  def format_wday(datetime)
+    %w(日 月 火 水 木 金 土)[datetime.wday]
   end
 end
