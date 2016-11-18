@@ -3,6 +3,6 @@ class LessonsController < ApplicationController
   end
 
   def register
-    @user_name = params[:user_name]
+    @user_name = params[:user][:name]
   end
 end
