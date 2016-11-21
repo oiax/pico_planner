@@ -6,4 +6,8 @@ class PlanItemsController < ApplicationController
   def show
     @plan_item = PlanItem.find(params[:id])
   end
+
+  def new
+    @plan_item = PlanItem.new
+  end
 end
