@@ -1,5 +1,8 @@
 <%= form_for @plan_item do |f| %>
   <div class='form-group'>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class='form-group'>
     <%= f.submit '追加', class: 'btn btn-success' %>
   </div>
 <% end %>
