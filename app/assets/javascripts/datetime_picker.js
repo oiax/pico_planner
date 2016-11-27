@@ -3,7 +3,6 @@ $(document).on('turbolinks:load', function() {
     locale: 'ja',
     format: 'YYYY-MM-DD HH:mm',
     dayViewHeaderFormat: 'YYYY年 MMMM',
-    focusOnShow: false,
     icons: {
       time: 'fa fa-clock-o',
       date: 'fa fa-calendar',
