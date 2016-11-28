@@ -25,15 +25,15 @@ class PlanItemsController < ApplicationController
   end
 
   def update
-    @plan_item = PlanItem.find(params[:id])
-    @plan_item.update_attributes(plan_item_params)
+    plan_item = PlanItem.find(params[:id])
+    plan_item.update_attributes(plan_item_params)
 
     redirect_to :plan_items, notice: '予定を更新しました。'
   end
 
   def destroy
-    @plan_item = PlanItem.find(params[:id])
-    @plan_item.destroy
+    plan_item = PlanItem.find(params[:id])
+    plan_item.destroy
 
     redirect_to :plan_items, notice: '予定を削除しました。'
   end
