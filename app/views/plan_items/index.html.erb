@@ -1,8 +1,13 @@
 <div class='container-fluid plan-items'>
   <% @plan_items.each do |item| %>
   <div class='row'>
-    <div class='col-xs-12 col-md-4'>
+    <div class='col-xs-8 col-md-4'>
       <span class='plan-item-name'><%= link_to item.name, item %></span>
+    </div>
+    <div class='col-xs-4 hidden-sm-up text-xs-right'>
+      <%= link_to [ :edit, item ] do %>
+        <i class='fa fa-pencil-square fa-lg'></i>
+      <% end %>
     </div>
     <div class='col-xs-12 col-md-8'>
       <span class='plan-item-description'>
@@ -10,6 +15,11 @@
           <%= line %><br>
         <% end %>
       </span>
+    </div>
+    <div class='col-md-3 hidden-xs-down text-xs-right'>
+      <%= link_to [ :edit, item ], class: 'btn btn-secondary btn-sm' do %>
+        <i class='fa fa-pencil-square'></i> 変更
+      <% end %>
     </div>
     <div class='col-xs-12'>
       <span class='plan-item-duration'><%= format_duration(item) %></span>
