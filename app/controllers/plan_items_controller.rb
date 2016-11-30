@@ -17,7 +17,7 @@ class PlanItemsController < ApplicationController
   def create
     plan_item = PlanItem.create!(
       params.require(:plan_item)
-        .try(:permit, :name, :description, :starts_at, :ends_at) || {}
+        .permit(:name, :description, :starts_at, :ends_at)
     )
 
     redirect_to :plan_items
