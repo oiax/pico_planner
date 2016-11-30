@@ -1,0 +1,27 @@
+<%= form_for @plan_item do |f| %>
+  <div class='form-group'>
+    <%= f.label :name, '件名' %>
+    <%= f.text_field :name, class: 'form-control', required: true %>
+  </div>
+  <div class='form-group'>
+    <%= f.label :description, '説明' %>
+    <%= f.text_area :description, class: 'form-control', rows: 4 %>
+  </div>
+  <div class='form-group'>
+    <%= f.label :starts_at, '開始日時' %>
+    <div class='input-group datetime-picker'>
+      <%= f.text_field :starts_at, class: 'form-control', required: true %>
+      <span class='input-group-addon'><i class='fa fa-calendar'></i></span>
+    </div>
+  </div>
+  <div class='form-group'>
+    <%= f.label :ends_at, '終了日時' %>
+    <div class='input-group datetime-picker'>
+      <%= f.text_field :ends_at, class: 'form-control', required: true %>
+      <span class='input-group-addon'><i class='fa fa-calendar'></i></span>
+    </div>
+  </div>
+  <div class='form-group'>
+    <%= f.submit '更新', class: 'btn btn-success' %>
+  </div>
+<% end %>
