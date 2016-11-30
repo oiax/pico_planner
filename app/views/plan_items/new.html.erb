@@ -1,4 +1,4 @@
-<%= form_for @plan_item do |f| %>
+<%= form_for @plan_item, as: :dummy do |f| %>
   <div class='form-group'>
     <%= f.label :name, '件名' %>
     <%= f.text_field :name, class: 'form-control', required: true %>
@@ -22,6 +22,7 @@
     </div>
   </div>
   <div class='form-group'>
+    <input type="hidden" name="plan_item" value="x">
     <%= f.submit '追加', class: 'btn btn-success' %>
   </div>
 <% end %>
