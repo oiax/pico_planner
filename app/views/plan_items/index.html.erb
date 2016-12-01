@@ -5,9 +5,7 @@
       <span class='plan-item-name'><%= link_to item.name, item %></span>
     </div>
     <div class='col-xs-4 text-xs-right hidden-md-up'>
-      <%= link_to [ :edit, item ] do %>
-        <i class='fa fa-pencil-square fa-lg'></i>
-      <% end %>
+      <%= render 'xs_toolbar', item: item %>
     </div>
     <div class='col-xs-12 col-md-5'>
       <span class='plan-item-description'>
@@ -17,9 +15,7 @@
       </span>
     </div>
     <div class='col-md-3 text-md-right hidden-sm-down'>
-      <%= link_to [ :edit, item ], class: 'btn btn-secondary btn-sm' do %>
-        <i class='fa fa-pencil-square'></i> 変更
-      <% end %>
+      <%= render 'md_toolbar', item: item %>
     </div>
     <div class='col-xs-12'>
       <span class='plan-item-duration'><%= format_duration(item) %></span>
