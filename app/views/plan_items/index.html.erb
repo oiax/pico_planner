@@ -1,3 +1,6 @@
+<% @plan_items.each do |item| %>
+  <%= render 'delete_confirmation', item: item %>
+<% end %>
 <div class='container-fluid plan-items'>
   <% @plan_items.each do |item| %>
   <div class='row'>
