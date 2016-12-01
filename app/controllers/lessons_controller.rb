@@ -5,4 +5,7 @@ class LessonsController < ApplicationController
   def register
     @user_name = params[:user][:name]
   end
+
+  def hello
+  end
 end
