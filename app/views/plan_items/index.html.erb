@@ -1,5 +1,8 @@
 <%= render 'index_nav' %>
 
+<% @plan_items.each do |item| %>
+  <%= render 'delete_confirmation', item: item %>
+<% end %>
 <div class='container-fluid plan-items'>
   <% @plan_items.each do |item| %>
     <%= render 'index_raw', item: item %>
