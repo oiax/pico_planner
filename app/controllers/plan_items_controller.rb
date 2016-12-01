@@ -20,7 +20,7 @@ class PlanItemsController < ApplicationController
 
   def create
     PlanItem.create!(
-      params.permit(:name, :description, :starts_at, :ends_at)
+      params[:plan_item].permit(:name, :description, :starts_at, :ends_at)
     )
 
     redirect_to :plan_items
@@ -29,7 +29,7 @@ class PlanItemsController < ApplicationController
   def update
     plan_item = PlanItem.find(params[:id])
     plan_item.update!(
-      params.permit(:name, :description, :starts_at, :ends_at)
+      params[:plan_item].permit(:name, :description, :starts_at, :ends_at)
     )
 
     redirect_to :plan_items
