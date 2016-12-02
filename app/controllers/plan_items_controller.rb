@@ -19,19 +19,26 @@ class PlanItemsController < ApplicationController
   end
 
   def create
-    PlanItem.create!(
-      params[:plan_item].permit(:name, :description, :starts_at, :ends_at)
-    )
+    PlanItem.create(plan_item_params)
 
     redirect_to :plan_items
   end
 
   def update
     plan_item = PlanItem.find(params[:id])
-    plan_item.update!(
-      params[:plan_item].permit(:name, :description, :starts_at, :ends_at)
-    )
+    plan_item.update_attributes(plan_item_params)
 
     redirect_to :plan_items
+  end
+
+  def destroy
+    plan_item = PlanItem.find(params[:id])
+    plan_item.destroy!
+
+    redirect_to :plan_items
+  end
+
+  private def plan_item_params
+    params[:plan_item].permit(:name, :description, :starts_at, :ends_at)
   end
 end
