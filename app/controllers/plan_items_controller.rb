@@ -33,7 +33,7 @@ class PlanItemsController < ApplicationController
 
   def destroy
     plan_item = PlanItem.find(params[:id])
-    plan_item.destroy
+    plan_item.destroy!
 
     redirect_to :plan_items, notice: '予定を削除しました。'
   end
