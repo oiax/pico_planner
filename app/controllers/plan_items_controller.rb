@@ -10,7 +10,9 @@ class PlanItemsController < ApplicationController
     @plan_items = PlanItem
       .where('starts_at >= ? AND starts_at < ?', t0, t1)
       .or(PlanItem.where('ends_at > ? AND ends_at <= ?', t0, t1))
-      .or(PlanItem.where('starts_at < ? AND ends_at > ?', t0, t1))
+      .order(:starts_at)
+    @continued_plan_items = PlanItem
+      .where('starts_at < ? AND ends_at > ?', t0, t1)
       .order(:starts_at)
     render action: 'index'
   end
