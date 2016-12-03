@@ -8,7 +8,7 @@ class PlanItemsController < ApplicationController
     t0 = Time.current.beginning_of_day
     t1 = Time.current.tomorrow.beginning_of_day
     @plan_items = PlanItem
-      .where(starts_at: t0...t1)
+      .where('starts_at >= ? AND starts_at < ?', t0, t1)
       .or(PlanItem.where('ends_at > ? AND ends_at <= ?', t0, t1))
       .order(:starts_at)
     render action: 'index'
