@@ -14,7 +14,7 @@ class PlanItemsController < ApplicationController
     @continued_plan_items = PlanItem
       .where('starts_at < ? AND ends_at > ?', t0, t1)
       .order(:starts_at)
-    render action: 'index'
+    render action: :index
   end
 
   def show
