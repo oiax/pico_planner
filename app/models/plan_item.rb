@@ -12,4 +12,28 @@
 #
 
 class PlanItem < ApplicationRecord
+  before_save do
+    if starts_at_date_part && starts_at_time_part
+      self.starts_at = starts_at_date_part + ' ' + starts_at_time_part
+    end
+  end
+
+  attr_writer :starts_at_date_part, :ends_at_date_part,
+    :starts_at_time_part, :ends_at_time_part
+
+  def starts_at_date_part
+    @starts_at_date_part ||= starts_at.try(:strftime, '%Y-%m-%d')
+  end
+
+  def ends_at_date_part
+    @ends_at_date_part ||= ends_at.try(:strftime, '%Y-%m-%d')
+  end
+
+  def starts_at_time_part
+    @starts_at_time_part ||= starts_at.try(:strftime, '%H:%M')
+  end
+
+  def ends_at_time_part
+    @ends_at_time_part ||= ends_at.try(:strftime, '%H:%M')
+  end
 end

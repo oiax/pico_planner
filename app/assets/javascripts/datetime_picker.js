@@ -1,15 +1,18 @@
 $(document).on('turbolinks:load', function() {
-  $('.datetime-picker').datetimepicker({
+  $('.date-picker').datetimepicker({
     locale: 'ja',
-    format: 'YYYY-MM-DD HH:mm',
+    format: 'YYYY-MM-DD',
     dayViewHeaderFormat: 'YYYY年 MMMM',
     icons: {
-      time: 'fa fa-clock-o',
-      date: 'fa fa-calendar',
-      up: 'fa fa-arrow-up',
-      down: 'fa fa-arrow-down',
       previous: 'fa fa-chevron-left',
       next: 'fa fa-chevron-right'
+    }
+  });
+  $('.time-picker').datetimepicker({
+    format: 'HH:mm',
+    icons: {
+      up: 'fa fa-arrow-up',
+      down: 'fa fa-arrow-down',
     }
   });
 });
