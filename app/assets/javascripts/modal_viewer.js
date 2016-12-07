@@ -1,3 +1,3 @@
 $(document).on('turbolinks:load', function() {
-  $('.modal viewer').modal();
+  $('.modal.viewer').modal();
 });
