@@ -14,7 +14,11 @@
 class PlanItem < ApplicationRecord
   before_save do
     if starts_at_date_part && starts_at_time_part
-      self.starts_at = starts_at_date_part + ' ' + starts_at_time_part
+      self.starts_at = "#{starts_at_date_part} #{starts_at_time_part}"
+    end
+
+    if ends_at_date_part && ends_at_time_part
+      self.ends_at = "#{ends_at_date_part} #{ends_at_time_part}"
     end
   end
 
