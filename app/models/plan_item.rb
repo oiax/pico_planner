@@ -16,18 +16,18 @@ class PlanItem < ApplicationRecord
     :ends_at_date_part, :ends_at_time_part
 
   def starts_at_date_part
-    @starts_at_date_part ||= starts_at.try(:strftime, '%Y-%m-%d')
+    @starts_at_date_part ||= starts_at&.strftime('%Y-%m-%d')
   end
 
   def starts_at_time_part
-    @starts_at_time_part ||= starts_at.try(:strftime, '%H:%M')
+    @starts_at_time_part ||= starts_at&.strftime('%H:%M')
   end
 
   def ends_at_date_part
-    @ends_at_date_part ||= ends_at.try(:strftime, '%Y-%m-%d')
+    @ends_at_date_part ||= ends_at&.strftime('%Y-%m-%d')
   end
 
   def ends_at_time_part
-    @ends_at_time_part ||= ends_at.try(:strftime, '%H:%M')
+    @ends_at_time_part ||= ends_at&.strftime('%H:%M')
   end
 end
