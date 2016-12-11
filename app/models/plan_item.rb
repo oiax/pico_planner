@@ -12,4 +12,6 @@
 #
 
 class PlanItem < ApplicationRecord
+  attr_accessor :starts_at_date_part, :starts_at_time_part,
+    :ends_at_date_part, :ends_at_time_part
 end

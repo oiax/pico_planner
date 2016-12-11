@@ -2,6 +2,7 @@
   <i class='fa fa-pencil-square fa-lg'></i>
 <% end %>
 
-<%= link_to item, method: :delete do %>
+<%= link_to "#delete-confirmation-#{item.id}",
+  data: { toggle: 'modal'} do %>
   <i class='fa fa-trash fa-lg'></i>
 <% end %>
