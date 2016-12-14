@@ -20,17 +20,3 @@ PlanItem.create!(
   starts_at: time0.beginning_of_year.advance(years: 1, days: -2),
   ends_at: time0.beginning_of_year.advance(years: 1, days: 3)
 )
-
-PlanItem.create!(
-  name: 'DVD鑑賞',
-  description: '作品未定',
-  starts_at: time0.advance(hours: 23),
-  ends_at: time0.advance(hours: 25)
-)
-
-PlanItem.create!(
-  name: '姉の出張',
-  description: '札幌',
-  starts_at: time0.advance(days: -1, hours: 10),
-  ends_at: time0.advance(days: 1, hours: 17)
-)
