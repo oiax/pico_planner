@@ -31,4 +31,8 @@ module ApplicationHelper
   def format_wday(datetime)
     %w(日 月 火 水 木 金 土)[datetime.wday]
   end
+
+  def document_title
+    'PicoPlanner'
+  end
 end
