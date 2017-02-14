@@ -14,7 +14,7 @@ module PlanItemsHelper
 
   def document_title
     prefix =
-      case params[:action]
+      case action_name
       when 'index'; '予定表'
       when 'of_today'; '今日の予定表'
       when 'show'; '予定の詳細'
