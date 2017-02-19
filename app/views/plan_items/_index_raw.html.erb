@@ -1,21 +1,21 @@
 <div class='row'>
-  <div class='col-xs-8 col-md-4'>
+  <div class='col-8 col-md-4'>
     <span class='plan-item-name'><%= link_to item.name, item %></span>
   </div>
-  <div class='col-xs-4 hidden-md-up text-xs-right toolbar'>
+  <div class='col-4 hidden-md-up text-right toolbar'>
     <%= render 'xs_toolbar', item: item %>
   </div>
-  <div class='col-xs-12 col-md-5'>
+  <div class='col-12 col-md-5'>
     <span class='plan-item-description'>
       <% item.description.split("\n").each do |line| %>
         <%= line %><br>
       <% end %>
     </span>
   </div>
-  <div class='col-md-3 hidden-sm-down text-xs-right toolbar'>
+  <div class='col-md-3 hidden-sm-down text-right toolbar'>
     <%= render 'md_toolbar', item: item %>
   </div>
-  <div class='col-xs-12'>
+  <div class='col-12'>
     <span class='plan-item-duration'><%= format_duration(item) %></span>
   </div>
 </div>
