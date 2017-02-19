@@ -1,12 +1,12 @@
 <div class='row'>
-  <div class='col-xs-12 col-md-7'>
+  <div class='col-12 col-md-7'>
     <div class='input-group date-picker'>
       <%= f.text_field "#{attr_name}_date_part",
         class: 'form-control', required: true %>
       <span class='input-group-addon'><i class='fa fa-calendar'></i></span>
     </div>
   </div>
-  <div class='col-xs-12 col-md-5'>
+  <div class='col-12 col-md-5'>
     <div class='hidden-md-up' style='margin-top: 0.5rem'></div>
     <div class='input-group time-picker'>
       <%= f.text_field "#{attr_name}_time_part",
