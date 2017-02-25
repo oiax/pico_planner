@@ -1,5 +1,7 @@
 div.list-group {
-  a {
-    border-color: gray;
+  a.list-group-item {
+    i.fa {
+      margin-right: 0.25rem;
+    }
   }
 }
