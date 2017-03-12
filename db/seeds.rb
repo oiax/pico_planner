@@ -34,3 +34,11 @@ PlanItem.create!(
   starts_at: time0.advance(days: -1, hours: 10),
   ends_at: time0.advance(days: 1, hours: 17)
 )
+
+PlanItem.create!(
+  name: '私の誕生日',
+  description: '',
+  all_day: true,
+  starts_on: Date.today.advance(days: 7),
+  ends_at: Date.today.advance(days: 7)
+)
