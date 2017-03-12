@@ -8,6 +8,8 @@
 #  starts_at   :datetime         not null
 #  ends_at     :datetime         not null
 #  all_day     :boolean          default(FALSE), not null
+#  starts_on   :date
+#  ends_on     :date
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
