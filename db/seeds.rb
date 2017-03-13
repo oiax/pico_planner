@@ -40,5 +40,13 @@ PlanItem.create!(
   description: '',
   all_day: true,
   starts_on: Date.today.advance(days: 7),
-  ends_at: Date.today.advance(days: 7)
+  ends_on: Date.today.advance(days: 7)
+)
+
+PlanItem.create!(
+  name: '社員研修',
+  description: '都内某所',
+  all_day: true,
+  starts_on: Date.today.advance(days: 14),
+  ends_on: Date.today.advance(days: 16)
 )
