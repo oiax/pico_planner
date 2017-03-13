@@ -55,6 +55,11 @@ module ApplicationHelper
     end
   end
 
+  def format_date(date)
+    w = format_wday(date)
+    date.strftime("%Y年%-m月%-d日 (#{w})")
+  end
+
   def format_datetime(datetime)
     w = format_wday(datetime)
     datetime.strftime("%Y年%-m月%-d日 (#{w}) %H:%M")
