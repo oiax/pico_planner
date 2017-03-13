@@ -15,6 +15,8 @@
 #
 
 class PlanItem < ApplicationRecord
+  scope :natural_order, -> { order(starts_at: :asc, all_day: :desc) }
+
   before_save do
     if starts_at_date_part && starts_at_time_part
       self.starts_at = "#{starts_at_date_part} #{starts_at_time_part}"
