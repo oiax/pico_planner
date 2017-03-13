@@ -25,8 +25,8 @@ class PlanItem < ApplicationRecord
     end
 
     if all_day?
-      self.starts_at = starts_on.to_datetime if starts_on
-      self.ends_at = ends_on.tomorrow.to_datetime if ends_on
+      self.starts_at = starts_on.beginning_of_day if starts_on
+      self.ends_at = ends_on.tomorrow.beginning_of_day if ends_on
     end
   end
 
