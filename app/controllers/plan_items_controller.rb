@@ -32,6 +32,10 @@ class PlanItemsController < ApplicationController
 
   def edit
     @plan_item = PlanItem.find(params[:id])
+    unless @plan_item.all_day?
+      @plan_item.starts_on = @plan_item.starts_at.to_date
+      @plan_item.ends_on = @plan_item.ends_at.to_date
+    end
   end
 
   def create
