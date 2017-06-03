@@ -43,9 +43,12 @@ class PlanItemsController < ApplicationController
   end
 
   def create
-    PlanItem.create(plan_item_params)
-
-    redirect_to :plan_items, notice: '予定を追加しました。'
+    @plan_item = PlanItem.new(plan_item_params)
+    if @plan_item.save
+      redirect_to :plan_items, notice: '予定を追加しました。'
+    else
+      render action: 'new'
+    end
   end
 
   def update
