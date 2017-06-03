@@ -34,7 +34,11 @@ class PlanItemsController < ApplicationController
     @plan_item = PlanItem.find(params[:id])
     unless @plan_item.all_day?
       @plan_item.starts_on = @plan_item.starts_at.to_date
-      @plan_item.ends_on = @plan_item.ends_at.to_date
+      if @plan_item.ends_at.seconds_since_midnight == 0
+        @plan_item.ends_on = @plan_item.ends_at.yesterday.to_date
+      else
+        @plan_item.ends_on = @plan_item.ends_at.to_date
+      end
     end
   end
 
