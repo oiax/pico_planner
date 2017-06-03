@@ -1,9 +1,9 @@
-<%= form_group_for(f, :name) do %>
-  <%= f.label :name, '件名' %>
+<%= form_group_for f, :name do %>
+  <%= f.label :description, '説明', class: 'form-control-label' %>
   <%= f.text_field :name, class: 'form-control', required: true %>
 <% end %>
-<%= form_group_for(f, :description) do %>
-  <%= f.label :description, '説明' %>
+<%= form_group_for f, :description do %>
+  <%= f.label :description, '説明', class: 'form-control-label' %>
   <%= f.text_area :description, class: 'form-control', rows: 4 %>
 <% end %>
 <div class='form-group'>
@@ -11,21 +11,19 @@
     <%= f.check_box :all_day %> 終日
   </label>
 </div>
-<%= form_group_for(f, %i(starts_at_date_part starts_at_time_part),
-  %w(hidden-if-all-day)) do %>
-  <%= f.label :starts_at, '開始日時' %>
+<%= form_group_for f, :starts_at, %w(hidden-if-all-day) do %>
+  <%= f.label :starts_at, '開始日時', class: 'form-control-label' %>
   <%= render 'datetime_picker', f: f, attr_name: :starts_at %>
 <% end %>
-<%= form_group_for(f, %i(ends_at_date_part ends_at_time_part),
-  %w(hidden-if-all-day)) do %>
-  <%= f.label :ends_at, '終了日時' %>
+<%= form_group_for f, :ends_at, %w(hidden-if-all-day) do %>
+  <%= f.label :ends_at, '終了日時', class: 'form-control-label' %>
   <%= render 'datetime_picker', f: f, attr_name: :ends_at %>
 <% end %>
-<%= form_group_for(f, :starts_on, %w(visible-if-all-day)) do %>
-  <%= f.label :starts_on, '開始日' %>
+<%= form_group_for f, :starts_on, %w(visible-if-all-day) do %>
+  <%= f.label :starts_on, '開始日', class: 'form-control-label' %>
   <%= render 'date_picker', f: f, attr_name: :starts_on %>
 <% end %>
-<%= form_group_for(f, :ends_on, %w(visible-if-all-day)) do %>
-  <%= f.label :ends_on, '終了日' %>
+<%= form_group_for f, :ends_on, %w(visible-if-all-day) do %>
+  <%= f.label :ends_on, '終了日', class: 'form-control-label' %>
   <%= render 'date_picker', f: f, attr_name: :ends_on %>
 <% end %>

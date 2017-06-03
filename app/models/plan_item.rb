@@ -17,11 +17,28 @@
 class PlanItem < ApplicationRecord
   scope :natural_order, -> { order(starts_at: :asc, all_day: :desc) }
 
+  before_validation do
+    if starts_at_date_part && starts_at_time_part
+      if starts_at_date_part.present? && starts_at_time_part.present?
+        self.starts_at = "#{starts_at_date_part} #{starts_at_time_part}"
+      else
+        self.starts_at = nil
+      end
+    end
+
+    if ends_at_date_part && ends_at_time_part
+      if ends_at_date_part.present? && ends_at_time_part.present?
+        self.ends_at = "#{ends_at_date_part} #{ends_at_time_part}"
+      else
+        self.ends_at = nil
+      end
+    end
+  end
+
   validates :name, presence: true, length: { maximum: 80 }
   validates :description, length: { maximum: 400 }
   validates :starts_on, :ends_on, presence: { if: :all_day? }
-  validates :starts_at_date_part, :starts_at_time_part,
-    :ends_at_date_part, :ends_at_time_part, presence: { unless: :all_day? }
+  validates :starts_at, :ends_at, presence: { unless: :all_day? }
 
   validate do
     if starts_on && ends_on && starts_on > ends_on
@@ -29,18 +46,7 @@ class PlanItem < ApplicationRecord
     end
 
     if starts_at && ends_at && starts_at > ends_at
-      errors.add(:ends_at_date_part, :too_early)
-      errors.add(:ends_at_time_part, :too_early)
-    end
-  end
-
-  before_validation do
-    if starts_at_date_part && starts_at_time_part
-      self.starts_at = "#{starts_at_date_part} #{starts_at_time_part}"
-    end
-
-    if ends_at_date_part && ends_at_time_part
-      self.ends_at = "#{ends_at_date_part} #{ends_at_time_part}"
+      errors.add(:ends_at, :too_early)
     end
   end
 

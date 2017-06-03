@@ -81,7 +81,7 @@ module ApplicationHelper
     html_classes += additional_classes
 
     if field_names.any? { |n| form_builder.object.errors.include?(n) }
-      html_classes << 'has-error'
+      html_classes << 'has-danger'
     end
 
     content_tag :div, class: html_classes.join(' '), &block
