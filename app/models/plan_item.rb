@@ -18,6 +18,7 @@ class PlanItem < ApplicationRecord
   scope :natural_order, -> { order(starts_at: :asc, all_day: :desc) }
 
   validates :name, presence: true, length: { maximum: 80 }
+  validates :description, length: { maximum: 400 }
   validates :starts_on, :ends_on, presence: { if: :all_day? }
   validates :starts_at_date_part, :starts_at_time_part,
     :ends_at_date_part, :ends_at_time_part, presence: { unless: :all_day? }

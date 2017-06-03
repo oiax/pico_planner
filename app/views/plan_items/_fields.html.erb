@@ -2,10 +2,10 @@
   <%= f.label :name, '件名' %>
   <%= f.text_field :name, class: 'form-control', required: true %>
 <% end %>
-<div class='form-group'>
+<%= form_group_for(f, :description) do %>
   <%= f.label :description, '説明' %>
   <%= f.text_area :description, class: 'form-control', rows: 4 %>
-</div>
+<% end %>
 <div class='form-group'>
   <label>
     <%= f.check_box :all_day %> 終日
