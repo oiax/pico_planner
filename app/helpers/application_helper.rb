@@ -73,17 +73,16 @@ module ApplicationHelper
     'PicoPlanner'
   end
 
-  def form_group_for(form_builder, field_names,
-    additional_classes = [], &block)
-    field_names = [ field_names ].flatten
-
+  def form_group_for(form_builder, field_name, options = {}, &block)
     html_classes = %w(form-group)
-    html_classes += additional_classes
+    html_classes << options[:class] if options[:class]
 
-    if field_names.any? { |n| form_builder.object.errors.include?(n) }
+    if form_builder.object.errors.include?(field_name)
       html_classes << 'has-danger'
     end
 
-    content_tag :div, class: html_classes.join(' '), &block
+    options[:class] = html_classes.join(' ')
+
+    content_tag :div, options, &block
   end
 end
