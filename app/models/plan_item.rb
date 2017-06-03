@@ -29,6 +29,9 @@ class PlanItem < ApplicationRecord
     if all_day?
       self.starts_at = starts_on.beginning_of_day if starts_on
       self.ends_at = ends_on.tomorrow.beginning_of_day if ends_on
+    else
+      self.starts_on = nil
+      self.ends_on = nil
     end
   end
 
