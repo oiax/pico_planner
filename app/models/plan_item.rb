@@ -17,7 +17,7 @@
 class PlanItem < ApplicationRecord
   scope :natural_order, -> { order(starts_at: :asc, all_day: :desc) }
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 80 }
 
   before_save do
     if starts_at_date_part && starts_at_time_part
