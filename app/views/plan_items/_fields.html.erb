@@ -11,19 +11,19 @@
     <%= f.check_box :all_day %> 終日
   </label>
 </div>
-<div class='form-group'>
+<div class='form-group hidden-if-all-day'>
   <%= f.label :starts_at, '開始日時' %>
   <%= render 'datetime_picker', f: f, attr_name: :starts_at %>
 </div>
-<div class='form-group'>
+<div class='form-group hidden-if-all-day'>
   <%= f.label :ends_at, '終了日時' %>
   <%= render 'datetime_picker', f: f, attr_name: :ends_at %>
 </div>
-<div class='form-group'>
+<div class='form-group visible-if-all-day'>
   <%= f.label :starts_on, '開始日' %>
   <%= render 'date_picker', f: f, attr_name: :starts_on %>
 </div>
-<div class='form-group'>
+<div class='form-group visible-if-all-day'>
   <%= f.label :ends_on, '終了日' %>
   <%= render 'date_picker', f: f, attr_name: :ends_on %>
 </div>
