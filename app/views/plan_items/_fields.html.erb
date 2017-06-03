@@ -1,7 +1,7 @@
-<div class='form-group'>
+<%= form_group_for(f, :name) do %>
   <%= f.label :name, '件名' %>
   <%= f.text_field :name, class: 'form-control', required: true %>
-</div>
+<% end %>
 <div class='form-group'>
   <%= f.label :description, '説明' %>
   <%= f.text_area :description, class: 'form-control', rows: 4 %>

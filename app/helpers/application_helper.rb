@@ -72,4 +72,14 @@ module ApplicationHelper
   def document_title
     'PicoPlanner'
   end
+
+  def form_group_for(form_builder, field_name, &block)
+    html_classes = %w(form-group)
+
+    if form_builder.object.errors.include?(field_name)
+      html_classes << 'has-error'
+    end
+
+    content_tag :div, class: html_classes.join(' '), &block
+  end
 end
