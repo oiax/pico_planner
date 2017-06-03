@@ -26,6 +26,8 @@ class PlanItemsController < ApplicationController
     time0 = Time.current.beginning_of_hour
     @plan_item.starts_at = time0.advance(hours: 1)
     @plan_item.ends_at = time0.advance(hours: 2)
+    @plan_item.starts_on = Date.today
+    @plan_item.ends_on = Date.today
   end
 
   def edit
@@ -54,9 +56,10 @@ class PlanItemsController < ApplicationController
 
   private def plan_item_params
     params[:plan_item].permit(
-      :name, :description,
+      :name, :description, :all_day,
       :starts_at_date_part, :starts_at_time_part,
-      :ends_at_date_part, :ends_at_time_part
+      :ends_at_date_part, :ends_at_time_part,
+      :starts_on, :ends_on
     )
   end
 end
