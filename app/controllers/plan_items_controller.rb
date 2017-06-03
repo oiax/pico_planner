@@ -52,10 +52,13 @@ class PlanItemsController < ApplicationController
   end
 
   def update
-    plan_item = PlanItem.find(params[:id])
-    plan_item.update_attributes(plan_item_params)
-
-    redirect_to :plan_items, notice: '予定を更新しました。'
+    @plan_item = PlanItem.find(params[:id])
+    @plan_item.assign_attributes(plan_item_params)
+    if @plan_item.save
+      redirect_to :plan_items, notice: '予定を更新しました。'
+    else
+      render action: 'edit'
+    end
   end
 
   def destroy
