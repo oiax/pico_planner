@@ -73,10 +73,14 @@ module ApplicationHelper
     'PicoPlanner'
   end
 
-  def form_group_for(form_builder, field_name, &block)
-    html_classes = %w(form-group)
+  def form_group_for(form_builder, field_names,
+    additional_classes = [], &block)
+    field_names = [ field_names ].flatten
 
-    if form_builder.object.errors.include?(field_name)
+    html_classes = %w(form-group)
+    html_classes += additional_classes
+
+    if field_names.any? { |n| form_builder.object.errors.include?(n) }
       html_classes << 'has-error'
     end
 
