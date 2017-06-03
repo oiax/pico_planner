@@ -19,14 +19,21 @@ class PlanItem < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 80 }
   validates :starts_on, :ends_on, presence: { if: :all_day? }
+  validates :starts_at_date_part, :starts_at_time_part,
+    :ends_at_date_part, :ends_at_time_part, presence: { unless: :all_day? }
 
   validate do
     if starts_on && ends_on && starts_on > ends_on
-      errors.add(:ends_on, :must_be_after_starts_on)
+      errors.add(:ends_on, :too_early)
+    end
+
+    if starts_at && ends_at && starts_at > ends_at
+      errors.add(:ends_at_date_part, :too_early)
+      errors.add(:ends_at_time_part, :too_early)
     end
   end
 
-  before_save do
+  before_validation do
     if starts_at_date_part && starts_at_time_part
       self.starts_at = "#{starts_at_date_part} #{starts_at_time_part}"
     end
@@ -34,7 +41,9 @@ class PlanItem < ApplicationRecord
     if ends_at_date_part && ends_at_time_part
       self.ends_at = "#{ends_at_date_part} #{ends_at_time_part}"
     end
+  end
 
+  before_save do
     if all_day?
       self.starts_at = starts_on.beginning_of_day if starts_on
       self.ends_at = ends_on.tomorrow.beginning_of_day if ends_on
