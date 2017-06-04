@@ -85,7 +85,8 @@ module ApplicationHelper
     if errors.include?(field_name)
       errors.full_messages_for(field_name).each do |message|
         inner_html << content_tag(
-          :div, message, class: 'form-control-feedback')
+          :div, message + I18n.t('punctuation.period'),
+          class: 'form-control-feedback')
       end
     end
 
