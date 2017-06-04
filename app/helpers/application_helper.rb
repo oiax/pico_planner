@@ -73,7 +73,7 @@ module ApplicationHelper
     'PicoPlanner'
   end
 
-  def form_group_for(form_builder, field_name, options = {}, &block)
+  def form_group(form_builder, field_name, options = {}, &block)
     errors = form_builder.object.errors
 
     html_classes = %w(form-group)
