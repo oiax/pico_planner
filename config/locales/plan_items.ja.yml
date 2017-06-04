@@ -4,3 +4,15 @@ ja:
       plan_item:
         name: "件名"
         description: "説明"
+        starts_at: "開始日時"
+        ends_at: "終了日時"
+        starts_on: "開始日"
+        ends_on: "終了日"
+    errors:
+      models:
+        plan_item:
+          attributes:
+            ends_at:
+              too_early: "には開始日時より後の日時を指定してください"
+            ends_on:
+              too_early: "には開始日より後の日付を指定してください"
