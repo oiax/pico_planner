@@ -7,9 +7,9 @@ module PlanItemsHelper
   def plan_items_nav_link(action)
     label = ACTION_LABEL_MAP[action]
     url = (action == :index ? :plan_items : [ action, :plan_items ])
-    css_classes = %w(nav-link)
-    css_classes << 'active' if action.to_s == params[:action]
-    link_to label, url, class: css_classes.join(' ')
+    html_classes = %w(nav-link)
+    html_classes << 'active' if action.to_s == params[:action]
+    link_to label, url, class: html_classes.join(' ')
   end
 
   def document_title
