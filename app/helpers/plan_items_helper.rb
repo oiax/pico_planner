@@ -20,13 +20,9 @@ module PlanItemsHelper
       when 'show'; '予定の詳細'
       when 'new', 'create'; '予定の追加'
       when 'edit', 'update'; '予定の変更'
-      else; ''
+      else; raise
       end
 
-    if prefix.present?
-      "#{prefix} | PicoPlanner"
-    else
-      'PicoPlanner'
-    end
+    "#{prefix} | PicoPlanner"
   end
 end
