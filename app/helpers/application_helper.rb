@@ -2,6 +2,38 @@
 
 module ApplicationHelper
   def format_duration(item)
+    if item.all_day?
+      format_date_duration(item)
+    else
+      format_datetime_duration(item)
+    end
+  end
+
+  private def format_date_duration(item)
+    w1 = format_wday(item.starts_on)
+    w2 = format_wday(item.ends_on)
+
+    s = String.new('')
+    if item.starts_on.year == Time.current.year
+      s << item.starts_on.strftime("%-m月%-d日 (#{w1})")
+    else
+      s << item.starts_on.strftime("%Y年%-m月%-d日 (#{w1})")
+    end
+
+    if item.starts_on != item.ends_on
+      s << ' ～ '
+
+      if item.ends_on.year == item.starts_on.year
+        s << item.ends_on.strftime("%-m月%-d日 (#{w2})")
+      else
+        s << item.ends_on.strftime("%Y年%-m月%-d日 (#{w2})")
+      end
+    end
+
+    s
+  end
+
+  private def format_datetime_duration(item)
     w1 = format_wday(item.starts_at)
     w2 = format_wday(item.ends_at)
 
