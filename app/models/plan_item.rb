@@ -5,6 +5,7 @@
 #  id          :integer          not null, primary key
 #  name        :string           not null
 #  description :text             not null
+#  all_day     :boolean          default(FALSE), not null
 #  starts_at   :datetime         not null
 #  ends_at     :datetime         not null
 #  created_at  :datetime         not null
