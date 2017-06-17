@@ -15,9 +15,9 @@ ActiveRecord::Schema.define(version: 20160813144526) do
   create_table "plan_items", force: :cascade do |t|
     t.string   "name",                        null: false
     t.text     "description",                 null: false
+    t.boolean  "all_day",     default: false, null: false
     t.datetime "starts_at",                   null: false
     t.datetime "ends_at",                     null: false
-    t.boolean  "all_day",     default: false, null: false
     t.date     "starts_on"
     t.date     "ends_on"
     t.datetime "created_at",                  null: false
