@@ -23,6 +23,11 @@ class PlanItem < ApplicationRecord
     if ends_at_date_part && ends_at_time_part
       self.ends_at = "#{ends_at_date_part} #{ends_at_time_part}"
     end
+
+    if all_day?
+      self.starts_at = starts_on.beginning_of_day if starts_on
+      self.ends_at = ends_on.tomorrow.beginning_of_day if ends_on
+    end
   end
 
   attr_writer :starts_at_date_part, :starts_at_time_part,
