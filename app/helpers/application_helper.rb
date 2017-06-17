@@ -60,6 +60,11 @@ module ApplicationHelper
     datetime.strftime("%Y年%-m月%-d日 (#{w}) %H:%M")
   end
 
+  def format_date(date)
+    w = format_wday(date)
+    date.strftime("%Y年%-m月%-d日 (#{w})")
+  end
+
   def format_wday(datetime)
     %w(日 月 火 水 木 金 土)[datetime.wday]
   end
