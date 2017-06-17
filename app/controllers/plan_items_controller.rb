@@ -1,6 +1,6 @@
 class PlanItemsController < ApplicationController
   def index
-    @plan_items = PlanItem.order(:starts_at)
+    @plan_items = PlanItem.order(starts_at: :asc, all_day: :desc)
   end
 
   # GET (collection)
@@ -10,10 +10,10 @@ class PlanItemsController < ApplicationController
     @plan_items = PlanItem
       .where('starts_at >= ? AND starts_at < ?', t0, t1)
       .or(PlanItem.where('ends_at > ? AND ends_at <= ?', t0, t1))
-      .order(:starts_at)
+      .order(starts_at: :asc, all_day: :desc)
     @continued_plan_items = PlanItem
       .where('starts_at < ? AND ends_at > ?', t0, t1)
-      .order(:starts_at)
+      .order(starts_at: :asc, all_day: :desc)
     render action: :index
   end
 
