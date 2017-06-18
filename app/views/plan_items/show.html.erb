@@ -2,7 +2,7 @@
 
 <div class='container-fluid plan-item'>
   <div class='row'>
-    <div class='col-xs-12 hidden-md-up text-xs-right toolbar'>
+    <div class='col-12 hidden-md-up text-xs-right toolbar'>
       <%= link_to :plan_items do %>
         <i class='fa fa-list fa-lg'></i>
       <% end %>
@@ -16,12 +16,12 @@
     </div>
   </div>
   <div class='row'>
-    <div class='col-xs-12 col-md-4 bg-info text-md-right'>件名</div>
-    <div class='col-xs-12 col-md-8'><%= @plan_item.name %></div>
+    <div class='col-12 col-md-4 bg-info text-md-right'>件名</div>
+    <div class='col-12 col-md-8'><%= @plan_item.name %></div>
   </div>
   <div class='row'>
-    <div class='col-xs-12 col-md-4 bg-info text-md-right'>説明</div>
-    <div class='col-xs-12 col-md-8'>
+    <div class='col-12 col-md-4 bg-info text-md-right'>説明</div>
+    <div class='col-12 col-md-8'>
       <% @plan_item.description.split("\n").each do |line| %>
         <%= line %><br>
       <% end %>
