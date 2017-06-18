@@ -17,7 +17,7 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
-gem 'bootstrap', '4.0.0.alpha4'
+gem 'bootstrap', '4.0.0.alpha6'
 gem 'tether-rails'
 gem 'font-awesome-sass'
 gem 'momentjs-rails'
