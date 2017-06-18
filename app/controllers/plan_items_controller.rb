@@ -27,7 +27,7 @@ class PlanItemsController < ApplicationController
     @plan_item.starts_at = time0.advance(hours: 1)
     @plan_item.ends_at = time0.advance(hours: 2)
     @plan_item.starts_on = Date.today
-    @plan_item.ends_on = Date.today
+    @plan_item.ends_on = @plan_item.starts_on
   end
 
   def edit
