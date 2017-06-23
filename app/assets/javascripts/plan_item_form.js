@@ -5,5 +5,11 @@ $(document).on('turbolinks:load', function() {
     var allDay = $('#plan_item_all_day').prop('checked');
     form.find('.visible-if-all-day').toggle(allDay);
     form.find('.hidden-if-all-day').toggle(!allDay);
+
+    $('#plan_item_all_day').on('change', function() {
+      var allDay = $('#plan_item_all_day').prop('checked');
+      form.find('.visible-if-all-day').toggle(allDay);
+      form.find('.hidden-if-all-day').toggle(!allDay);
+    });
   }
 });
