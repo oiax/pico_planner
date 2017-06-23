@@ -3,6 +3,7 @@ $(document).on('turbolinks:load', function() {
 
   if (form.length > 0) {
     var allDay = $('#plan_item_all_day').prop('checked');
-    console.log(allDay);
+    form.find('.visible-if-all-day').toggle(allDay);
+    form.find('.hidden-if-all-day').toggle(!allDay);
   }
 });
