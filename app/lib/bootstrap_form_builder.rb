@@ -20,6 +20,16 @@ class BootstrapFormBuilder
     @builder.label(field_name, text, options, &block)
   end
 
+  def text_field(field_name, options = {})
+    html_classes = %w(form-control)
+    if @builder.object.errors.include?(field_name)
+      html_classes << 'has-danger'
+    end
+    html_classes << options[:class] if options[:class]
+    options[:class] = html_classes.join(' ')
+    @builder.text_field(field_name, options)
+  end
+
   def method_missing(name, *args)
     @builder.send(name, *args)
   end

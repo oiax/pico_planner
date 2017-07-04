@@ -1,8 +1,7 @@
 <% f = BootstrapFormBuilder.new(f, self) %>
 <%= f.group :name do %>
   <%= f.label :name, '件名' %>
-  <%= f.text_field :name,
-    class: 'form-control form-control-danger', required: true %>
+  <%= f.text_field :name, required: true %>
 <% end %>
 <div class='form-group'>
   <%= f.label :description, '説明' %>
