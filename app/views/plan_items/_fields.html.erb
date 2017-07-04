@@ -1,8 +1,5 @@
-<%
-  html_classes = %w(form-group)
-  html_classes << 'has-danger' if f.object.errors.include?(:name)
-%>
-<%= content_tag :div, class: html_classes.join(' ') do %>
+<% f = BootstrapFormBuilder.new(f, self) %>
+<%= f.group :name do %>
   <%= f.label :name, '件名', class: 'form-control-label' %>
   <%= f.text_field :name,
     class: 'form-control form-control-danger', required: true %>
