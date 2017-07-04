@@ -2,9 +2,7 @@
 <%= f.group :name do %>
   <%= f.label :name, '件名' %>
   <%= f.text_field :name, required: true %>
-  <% f.object.errors.full_messages_for(:name).each do |message| %>
-    <div class="form-control-feedback"><%= message %></div>
-  <% end %>
+  <%= f.error_messages :name %>
 <% end %>
 <div class='form-group'>
   <%= f.label :description, '説明' %>

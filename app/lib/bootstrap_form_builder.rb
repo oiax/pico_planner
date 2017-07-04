@@ -13,6 +13,16 @@ class BootstrapFormBuilder
     @helpers.content_tag :div, class: html_classes.join(' '), &block
   end
 
+  def error_messages(field_name)
+    buffer = ActiveSupport::SafeBuffer.new
+
+    @builder.object.errors.full_messages_for(field_name).each do |message|
+      buffer << @helpers.content_tag(:div, message, class: 'form-control-feedback')
+    end
+
+    buffer
+  end
+
   def label(field_name, text = nil, options = {}, &block)
     html_classes = %w(form-control-label)
     html_classes << options[:class] if options[:class]
