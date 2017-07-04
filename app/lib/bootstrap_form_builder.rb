@@ -13,6 +13,13 @@ class BootstrapFormBuilder
     @helpers.content_tag :div, class: html_classes.join(' '), &block
   end
 
+  def label(field_name, text = nil, options = {}, &block)
+    html_classes = %w(form-control-label)
+    html_classes << options[:class] if options[:class]
+    options[:class] = html_classes.join(' ')
+    @builder.label(field_name, text, options, &block)
+  end
+
   def method_missing(name, *args)
     @builder.send(name, *args)
   end
