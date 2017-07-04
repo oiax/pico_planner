@@ -17,7 +17,8 @@ class BootstrapFormBuilder
     buffer = ActiveSupport::SafeBuffer.new
 
     @builder.object.errors.full_messages_for(field_name).each do |message|
-      buffer << @helpers.content_tag(:div, message, class: 'form-control-feedback')
+      buffer << @helpers.content_tag(
+        :div, message, class: 'form-control-feedback')
     end
 
     buffer
@@ -31,13 +32,21 @@ class BootstrapFormBuilder
   end
 
   def text_field(field_name, options = {})
+    text_field_or_area(:text_field, field_name, options)
+  end
+
+  def text_area(field_name, options = {})
+    text_field_or_area(:text_area, field_name, options)
+  end
+
+  private def text_field_or_area(method_name, field_name, options)
     html_classes = %w(form-control)
     if @builder.object.errors.include?(field_name)
       html_classes << 'has-danger'
     end
     html_classes << options[:class] if options[:class]
     options[:class] = html_classes.join(' ')
-    @builder.text_field(field_name, options)
+    @builder.send(method_name, field_name, options)
   end
 
   def method_missing(name, *args)
