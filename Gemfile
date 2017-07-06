@@ -7,7 +7,7 @@ end
 
 ruby '2.4.1'
 
-gem 'rails', '= 5.0.4.rc1'
+gem 'rails', '= 5.0.4'
 gem 'sqlite3'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
