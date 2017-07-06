@@ -1,0 +1,5 @@
+ja:
+  activerecord:
+    attributes:
+      plan_item:
+        name:  "件名"

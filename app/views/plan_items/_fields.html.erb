@@ -1,6 +1,6 @@
 <% f = BootstrapFormBuilder.new(f, self) %>
 <%= f.group :name do %>
-  <%= f.label :name, '件名' %>
+  <%= f.label :name %>
   <%= f.text_field :name, required: true %>
   <%= f.error_messages :name %>
 <% end %>
