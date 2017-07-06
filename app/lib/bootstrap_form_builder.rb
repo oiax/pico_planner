@@ -49,7 +49,7 @@ class BootstrapFormBuilder
     @builder.send(method_name, field_name, options)
   end
 
-  def method_missing(name, *args)
-    @builder.send(name, *args)
+  def method_missing(name, *args, &block)
+    @builder.send(name, *args, &block)
   end
 end
