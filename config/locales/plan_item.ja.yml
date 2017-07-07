@@ -5,3 +5,5 @@ ja:
         name:  "件名"
         description: "説明"
         all_day: "終日"
+        starts_on: "開始日"
+        ends_on: "終了日"

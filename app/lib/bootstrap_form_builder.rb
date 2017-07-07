@@ -4,11 +4,12 @@ class BootstrapFormBuilder
     @helpers = helpers
   end
 
-  def group(field_name, &block)
+  def group(field_name, options = {}, &block)
     html_classes = %w(form-group)
     if @builder.object.errors.include?(field_name)
       html_classes << 'has-danger'
     end
+    html_classes << options[:class] if options[:class]
 
     @helpers.content_tag :div, class: html_classes.join(' '), &block
   end
@@ -43,7 +44,7 @@ class BootstrapFormBuilder
   private def text_field_or_area(method_name, field_name, options)
     html_classes = %w(form-control)
     if @builder.object.errors.include?(field_name)
-      html_classes << 'has-danger'
+      html_classes << 'form-control-danger'
     end
     html_classes << options[:class] if options[:class]
     options[:class] = html_classes.join(' ')
