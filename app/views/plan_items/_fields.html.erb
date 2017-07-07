@@ -1,33 +1,34 @@
-<%= form_group f, :name do %>
-  <%= f.label :name, '件名', class: 'form-control-label' %>
-  <%= f.text_field :name,
-    class: 'form-control form-control-danger', required: true %>
+<% f = BootstrapFormBuilder.new(f, self) %>
+<%= f.group :name do %>
+  <%= f.label :name %>
+  <%= f.text_field :name, required: true %>
+  <%= f.error_messages :name %>
 <% end %>
-<%= form_group f, :description do %>
-  <%= f.label :description, '説明', class: 'form-control-label' %>
-  <%= f.text_area :description,
-    class: 'form-control form-control-danger', rows: 4 %>
+<%= f.group :description do %>
+  <%= f.label :description %>
+  <%= f.text_area :description, rows: 4 %>
+  <%= f.error_messages :description %>
 <% end %>
-<div class='form-group'>
-  <label class='custom-control custom-checkbox'>
-    <%= f.check_box :all_day, class: 'custom-control-input' %>
-    <span class="custom-control-indicator"></span>
-    <span class="custom-control-description">終日</span>
-  </label>
-</div>
-<%= form_group f, :starts_at, class: 'hidden-if-all-day' do %>
-  <%= f.label :starts_at, '開始日時', class: 'form-control-label' %>
+<%= f.group :all_day do %>
+  <%= f.custom_check_box :all_day %>
+<% end %>
+<%= f.group :starts_at, class: 'hidden-if-all-day' do %>
+  <%= f.label :starts_at %>
   <%= render 'datetime_picker', f: f, attr_name: :starts_at %>
+  <%= f.error_messages :starts_at %>
 <% end %>
-<%= form_group f, :ends_at, class: 'hidden-if-all-day' do %>
-  <%= f.label :ends_at, '終了日時', class: 'form-control-label' %>
+<%= f.group :ends_at, class: 'hidden-if-all-day' do %>
+  <%= f.label :ends_at %>
   <%= render 'datetime_picker', f: f, attr_name: :ends_at %>
+  <%= f.error_messages :ends_at %>
 <% end %>
-<%= form_group f, :starts_on, class: 'visible-if-all-day' do %>
-  <%= f.label :starts_on, '開始日', class: 'form-control-label' %>
+<%= f.group :starts_on, class: 'visible-if-all-day' do %>
+  <%= f.label :starts_on %>
   <%= render 'date_picker', f: f, attr_name: :starts_on %>
+  <%= f.error_messages :starts_on %>
 <% end %>
-<%= form_group f, :ends_on, class: 'visible-if-all-day' do %>
-  <%= f.label :ends_on, '終了日', class: 'form-control-label' %>
+<%= f.group :ends_on, class: 'visible-if-all-day' do %>
+  <%= f.label :ends_on %>
   <%= render 'date_picker', f: f, attr_name: :ends_on %>
+  <%= f.error_messages :ends_on %>
 <% end %>

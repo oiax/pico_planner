@@ -72,24 +72,4 @@ module ApplicationHelper
   def document_title
     'PicoPlanner'
   end
-
-  def form_group(form_builder, field_name, options = {}, &block)
-    errors = form_builder.object.errors
-
-    html_classes = %w(form-group)
-    html_classes << 'has-danger' if errors.include?(field_name)
-    html_classes << options[:class] if options[:class]
-    options[:class] = html_classes.join(' ')
-
-    inner_html = capture(&block)
-    if errors.include?(field_name)
-      errors.full_messages_for(field_name).each do |message|
-        inner_html << content_tag(
-          :div, message + I18n.t('punctuation.period'),
-          class: 'form-control-feedback')
-      end
-    end
-
-    content_tag :div, inner_html, options
-  end
 end

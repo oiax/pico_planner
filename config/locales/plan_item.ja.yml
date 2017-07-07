@@ -4,6 +4,7 @@ ja:
       plan_item:
         name: "件名"
         description: "説明"
+        all_day: "終日"
         starts_at: "開始日時"
         ends_at: "終了日時"
         starts_on: "開始日"
