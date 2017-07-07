@@ -4,10 +4,11 @@
   <%= f.text_field :name, required: true %>
   <%= f.error_messages :name %>
 <% end %>
-<div class='form-group'>
-  <%= f.label :description, '説明' %>
-  <%= f.text_area :description, class: 'form-control', rows: 4 %>
-</div>
+<%= f.group :description do %>
+  <%= f.label :description %>
+  <%= f.text_area :description, rows: 4 %>
+  <%= f.error_messages :description %>
+<% end %>
 <div class='form-group'>
   <label class='custom-control custom-checkbox'>
     <%= f.check_box :all_day, class: 'custom-control-input' %>

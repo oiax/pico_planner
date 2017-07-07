@@ -18,7 +18,7 @@ class BootstrapFormBuilder
 
     @builder.object.errors.full_messages_for(field_name).each do |message|
       buffer << @helpers.content_tag(
-        :div, message + I18n.t('punctuation.period'), 
+        :div, message + I18n.t('punctuation.period'),
         class: 'form-control-feedback')
     end
 

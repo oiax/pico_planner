@@ -3,3 +3,4 @@ ja:
     attributes:
       plan_item:
         name:  "件名"
+        description: "説明"

@@ -19,6 +19,7 @@ class PlanItem < ApplicationRecord
     -> { order(starts_at: :asc, all_day: :desc, id: :asc) }
 
   validates :name, presence: true, length: { maximum: 80 }
+  validates :description, length: { maximum: 400 }
 
   before_save do
     if starts_at_date_part && starts_at_time_part
