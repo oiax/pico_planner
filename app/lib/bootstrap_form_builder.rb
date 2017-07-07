@@ -50,6 +50,22 @@ class BootstrapFormBuilder
     @builder.send(method_name, field_name, options)
   end
 
+  def custom_check_box(field_name, text = nil)
+    label_text = text ||
+      @builder.object.class.human_attribute_name(field_name)
+
+    @helpers.content_tag :label, class: 'custom-control custom-checkbox' do
+      buffer = ActiveSupport::SafeBuffer.new
+      buffer << @builder.check_box(field_name,
+        class: 'custom-control-input')
+      buffer << @helpers.content_tag(:span, '',
+        class: 'custom-control-indicator')
+      buffer << @helpers.content_tag(:span, label_text,
+        class: 'custom-control-description')
+      buffer
+    end
+  end
+
   def method_missing(name, *args, &block)
     @builder.send(name, *args, &block)
   end

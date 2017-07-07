@@ -9,13 +9,9 @@
   <%= f.text_area :description, rows: 4 %>
   <%= f.error_messages :description %>
 <% end %>
-<div class='form-group'>
-  <label class='custom-control custom-checkbox'>
-    <%= f.check_box :all_day, class: 'custom-control-input' %>
-    <span class="custom-control-indicator"></span>
-    <span class="custom-control-description">終日</span>
-  </label>
-</div>
+<%= f.group :all_day do %>
+  <%= f.custom_check_box :all_day %>
+<% end %>
 <div class='form-group hidden-if-all-day'>
   <%= f.label :starts_at, '開始日時' %>
   <%= render 'datetime_picker', f: f, attr_name: :starts_at %>

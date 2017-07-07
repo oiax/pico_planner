@@ -4,3 +4,4 @@ ja:
       plan_item:
         name:  "件名"
         description: "説明"
+        all_day: "終日"
