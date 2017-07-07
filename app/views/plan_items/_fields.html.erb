@@ -12,14 +12,16 @@
 <%= f.group :all_day do %>
   <%= f.custom_check_box :all_day %>
 <% end %>
-<div class='form-group hidden-if-all-day'>
-  <%= f.label :starts_at, '開始日時' %>
+<%= f.group :starts_at, class: 'hidden-if-all-day' do %>
+  <%= f.label :starts_at %>
   <%= render 'datetime_picker', f: f, attr_name: :starts_at %>
-</div>
-<div class='form-group hidden-if-all-day'>
-  <%= f.label :ends_at, '終了日時' %>
+  <%= f.error_messages :starts_at %>
+<% end %>
+<%= f.group :ends_at, class: 'hidden-if-all-day' do %>
+  <%= f.label :ends_at %>
   <%= render 'datetime_picker', f: f, attr_name: :ends_at %>
-</div>
+  <%= f.error_messages :ends_at %>
+<% end %>
 <%= f.group :starts_on, class: 'visible-if-all-day' do %>
   <%= f.label :starts_on %>
   <%= render 'date_picker', f: f, attr_name: :starts_on %>

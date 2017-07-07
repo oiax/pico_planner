@@ -39,9 +39,7 @@ class PlanItem < ApplicationRecord
   validates :name, presence: true, length: { maximum: 80 }
   validates :description, length: { maximum: 400 }
   validates :starts_on, :ends_on, presence: { if: :all_day? }
-  validates :starts_at_date_part, :starts_at_time_part,
-    :ends_at_date_part, :ends_at_time_part,
-    presence: { unless: :all_day?, allow_nil: true }
+  validates :starts_at, :ends_at, presence: { unless: :all_day? }
 
   validate do
     if starts_on && ends_on && starts_on > ends_on

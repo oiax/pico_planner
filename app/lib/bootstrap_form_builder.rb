@@ -11,7 +11,8 @@ class BootstrapFormBuilder
     end
     html_classes << options[:class] if options[:class]
 
-    @helpers.content_tag :div, class: html_classes.join(' '), &block
+    options[:class] = html_classes.join(' ')
+    @helpers.content_tag :div, options, &block
   end
 
   def error_messages(field_name)
