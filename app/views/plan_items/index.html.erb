@@ -6,7 +6,7 @@
 
 <div class='container-fluid plan-items'>
   <% @plan_items.each do |item| %>
-    <%= render 'index_raw', item: item %>
+    <%= render 'index_row', item: item %>
   <% end %>
 </div>
 
@@ -14,7 +14,7 @@
   <hr>
   <div class='container-fluid plan-items'>
     <% @continued_plan_items.each do |item| %>
-      <%= render 'index_raw', item: item %>
+      <%= render 'index_row', item: item %>
     <% end %>
   </div>
 <% end %>
