@@ -6,7 +6,7 @@ class PlanItemsController < ApplicationController
   # GET (collection)
   def of_today
     t0 = Time.current.beginning_of_day
-    t1 = Time.current.tomorrow.beginning_of_day
+    t1 = t0.advance(hours: 24)
     @plan_items = PlanItem
       .where('starts_at >= ? AND starts_at < ?', t0, t1)
       .or(PlanItem.where('ends_at > ? AND ends_at <= ?', t0, t1))
