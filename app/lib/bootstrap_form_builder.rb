@@ -43,10 +43,7 @@ class BootstrapFormBuilder
   end
 
   private def text_field_or_area(method_name, field_name, options)
-    html_classes = %w(form-control)
-    if @builder.object.errors.include?(field_name)
-      html_classes << 'form-control-danger'
-    end
+    html_classes = %w(form-control form-control-danger)
     html_classes << options[:class] if options[:class]
     options[:class] = html_classes.join(' ')
     @builder.send(method_name, field_name, options)
