@@ -8,7 +8,7 @@ module PlanItemsHelper
     label = ACTION_LABEL_MAP[action]
     url = (action == :index ? :plan_items : [ action, :plan_items ])
     html_classes = %w(nav-link)
-    html_classes << 'active' if action.to_s == params[:action]
+    html_classes << 'active' if action.to_s == action_name
     link_to label, url, class: html_classes.join(' ')
   end
 
